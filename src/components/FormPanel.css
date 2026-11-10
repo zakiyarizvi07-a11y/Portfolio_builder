@@ -1,0 +1,354 @@
+/* =============================================
+   FORM PANEL
+   ============================================= */
+
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ---- Section Tabs ---- */
+.section-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.section-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  transition: all var(--transition);
+  border-bottom: 2px solid transparent;
+  text-transform: uppercase;
+}
+
+.section-tab:hover {
+  color: var(--text);
+  background: var(--surface-alt);
+}
+
+.section-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+.section-tab-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.section-tab-label {
+  line-height: 1;
+}
+
+/* ---- Form Sections ---- */
+.form-sections {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+}
+
+.form-section {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  padding: 22px 20px;
+  overflow-y: auto;
+  height: 100%;
+  animation: fadeIn 200ms ease;
+}
+
+.form-section.active {
+  display: flex;
+}
+
+/* Design section uses a different layout (DesignPanel owns its padding) */
+.design-section {
+  gap: 0;
+  padding: 0;
+}
+
+.profile-subhead {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.section-intro {
+  padding: 11px 14px;
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+}
+
+.section-intro p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.section-intro strong {
+  color: var(--text);
+}
+
+.section-intro kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* ---- Photo upload ---- */
+.photo-upload-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface-alt);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+}
+
+.photo-preview-wrap {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--border);
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+}
+
+.photo-upload-actions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.photo-upload-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.photo-upload-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.photo-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.photo-upload-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+  transition: all var(--transition);
+}
+
+.photo-upload-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.photo-remove-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+
+.photo-remove-btn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+.photo-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ---- Field Input ---- */
+.field-input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+.field-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.field-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.6;
+}
+
+.char-count {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ---- Projects ---- */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all var(--transition);
+  width: 100%;
+}
+
+.add-project-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+
+.add-project-btn svg {
+  transition: transform var(--transition);
+}
+
+.add-project-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+/* ---- Bottom navigation ---- */
+.section-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.section-nav-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.section-nav-btn:hover:not(:disabled) {
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.section-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.section-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all var(--transition);
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.dot:hover {
+  background: var(--text-muted);
+}
+
+.dot.active {
+  background: var(--accent);
+  width: 16px;
+  border-radius: 3px;
+}

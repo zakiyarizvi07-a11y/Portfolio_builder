@@ -1,0 +1,92 @@
+.layout-preset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.layout-preset-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.layout-preset-card:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--accent-light);
+}
+
+.layout-preset-card.active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.layout-wireframe {
+  width: 56px;
+  height: 38px;
+}
+
+.layout-preset-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.layout-preset-desc {
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--text-muted);
+}
+
+.layout-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.layout-control-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.layout-tip-box {
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.layout-tip-box p {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.layout-jump-btn {
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--accent-light);
+  transition: background var(--transition);
+}
+
+.layout-jump-btn:hover {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+}

@@ -1,0 +1,37 @@
+
+**No database. No backend. 100% frontend.** Here's the full picture:
+
+## Stack
+
+| Layer | What it is |
+|---|---|
+| **Framework** | React 18 |
+| **Build tool** | Vite 6 |
+| **Styling** | Plain CSS (co-located `.css` files, CSS custom properties for theming) |
+| **State** | React `useState` / `useCallback` — no external state lib |
+| **Persistence** | `localStorage` only (browser draft auto-save) |
+| **Backend** | ❌ None |
+| **Database** | ❌ None |
+| **API calls** | ❌ None |
+| **Auth** | ❌ None |
+| **Dependencies** | Only `react`, `react-dom`, and Vite dev tooling |
+
+## How data flows
+
+```
+User types → React state (in-memory)
+                ↓ (auto-save, debounced 600ms)
+           localStorage  ←→  page reload
+                ↓ (Download HTML button)
+      self-contained .html file (no server needed)
+```
+
+## What the exported portfolio is
+
+A **single `.html` file** with all CSS inlined as a `<style>` block and all SVG icons embedded as strings — no CDN links, no JS framework, no internet required. It's just vanilla HTML + CSS.
+
+## Implications
+
+- Nothing to deploy for the builder itself beyond a static host (GitHub Pages, Netlify, Vercel, etc.)
+- The downloaded portfolio file can be opened directly in a browser or dropped on any static host
+- No user accounts, no cloud sync — everything lives in the browser

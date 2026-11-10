@@ -1,0 +1,55 @@
+/* =============================================
+   APP LAYOUT
+   ============================================= */
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--surface-alt);
+}
+
+/* ---- Two-column main layout ---- */
+.app-main {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  height: calc(100dvh - 60px);
+}
+
+.form-pane {
+  overflow-y: hidden;    /* inner sections handle scroll */
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.preview-pane {
+  overflow-y: hidden;
+  background: var(--surface-alt);
+  display: flex;
+  flex-direction: column;
+  transition: background var(--transition);
+}
+
+/* ---- Mobile layout ---- */
+@media (max-width: 860px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    height: calc(100dvh - 60px);
+  }
+
+  .form-pane   { border-right: none; }
+  .preview-pane { display: none; }
+
+  .form-pane.hidden-mobile   { display: none; }
+  .preview-pane.visible-mobile { display: flex; }
+}
+
+@media (min-width: 861px) and (max-width: 1120px) {
+  .app-main { grid-template-columns: 400px 1fr; }
+}
